@@ -1,8 +1,59 @@
 
-content {
+layout {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
+	display: flex;
+	flex-direction: row;
+	border-radius: inherit;
+
+	sidebar {
+		position: relative;
+		width: 180px;
+		background-color: rgba(#333,.1);
+		border-right: 1px solid rgba(#ccc, .65);
+		padding: 2px 0 0 2px;
+
+		[class*="icon-"],
+		[class^="icon-"] {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			width: 17px;
+			height: 17px;
+			margin: 0 1px 1px 0;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-color: rgba(#000,.1);
+			
+			&.icon-arrow    { background-image: url(~/icons/icon-arrow.png); background-size: 13px 13px; background-color: transparent; }
+			&.icon-server   { background-image: url(~/icons/icon-server.png); }
+			&.icon-database { background-image: url(~/icons/icon-database.png); }
+			&.icon-table    { background-image: url(~/icons/icon-table.png); }
+			&.icon-column   { background-image: url(~/icons/icon-column.png); }
+		}
+
+		.leaf {
+			display: flex;
+			height: 18px;
+			font-size: 0;
+
+			span {
+				flex: 1;
+				font-size: 12px;
+				padding: 3px 0 0 2px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+
+	content {
+		position: relative;
+		flex: 1;
+	}
 }
