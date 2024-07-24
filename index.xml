@@ -1,0 +1,23 @@
+<Application>
+	<Head>
+		<meta name="id" value="sequel"/>
+		<meta name="title" value="Sequel" version="1.0"/>
+		<meta name="author" value="Hakan Bilgin" namespace="ant"/>
+		<meta name="license" value="AGPL-3.0"/>
+		<meta name="repository" value="https://github.com/Defiant-System/sequel"/>
+		<meta name="width" value="720"/>
+		<meta name="height" value="460"/>
+		<meta name="top" value="195"/>
+		<meta name="left" value="120"/>
+		<meta name="minimize"/>
+		<meta name="maximize"/>
+		<meta name="resize"/>
+		<meta name="script" value="src/js/main.js"/>
+		<meta name="style" value="src/css/main.less"/>
+		<meta name="icons" value="src/svg/icons.svg"/>
+		<meta name="content" value="src/partials/content.htm"/>
+		<meta name="xsl" value="src/partials/templates.xsl"/>
+
+		@import "src/partials/menubar.xml"
+	</Head>
+</Application>
