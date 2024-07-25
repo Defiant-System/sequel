@@ -1,7 +1,6 @@
 <ToolBar>
 	<Group width="69%">
 		<Tool symbol="icon-sidebar" state="active"/>
-		<Tool symbol="icon-filter"/>
 	</Group>
 	<Group width="31%">
 		

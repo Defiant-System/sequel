@@ -108,8 +108,18 @@ layout {
 			border-radius: 3px;
 			font-size: 12px;
 
-			tr {
+			thead {
 
+			}
+
+			tbody {
+				tr {
+					border-bottom: 1px solid transparent;
+
+					&:not(:last-child):hover {
+						border-bottom-color: rgba(#000,.15);
+					}
+				}
 			}
 
 			th {
@@ -117,7 +127,7 @@ layout {
 				background: #f0f0f0;
 				color: #666;
 				font-weight: normal;
-				padding: 5px 7px 5px 5px;
+				padding: 5px 9px 5px 5px;
 				text-align: left;
 				border-bottom: 1px solid #cecece;
 
@@ -142,7 +152,7 @@ layout {
 			}
 
 			td {
-				padding: 5px 7px 5px 5px;
+				padding: 5px 9px 4px 5px;
 				text-align: left;
 			}
 		}
