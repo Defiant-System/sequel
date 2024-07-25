@@ -12,9 +12,8 @@ layout {
 	sidebar {
 		position: relative;
 		width: 180px;
-		background-color: rgba(#333,.1);
-		border-right: 1px solid rgba(#ccc, .65);
-		padding: 2px 0 0 2px;
+		// background-color: rgba(#333,.1);
+		padding: 3px 0 0 2px;
 
 		[class*="icon-"],
 		[class^="icon-"] {
@@ -24,14 +23,27 @@ layout {
 			width: 17px;
 			height: 17px;
 			margin: 0 1px 1px 0;
-			background-size: cover;
+			background-size: contain;
 			background-repeat: no-repeat;
 			background-position: 50% 50%;
-			background-color: rgba(#000,.1);
+			// background-color: rgba(#000,.1);
 			
-			&.icon-arrow    { background-image: url(~/icons/icon-arrow.png); background-size: 13px 13px; background-color: transparent; }
-			&.icon-server   { background-image: url(~/icons/icon-server.png); }
+			&.icon-blank    {
+				background-image: none;
+				width: 13px;
+				height: 13px;
+				top: 2px;
+			}
+			&.icon-arrow    {
+				background-image: url(~/icons/icon-arrow.png);
+				width: 13px;
+				height: 13px;
+				top: 2px;
+				// background-color: rgba(#000,.1);
+			}
+			&.icon-servers  { background-image: url(~/icons/icon-servers.png); }
 			&.icon-database { background-image: url(~/icons/icon-database.png); }
+			&.icon-tables   { background-image: url(~/icons/icon-tables.png); }
 			&.icon-table    { background-image: url(~/icons/icon-table.png); }
 			&.icon-column   { background-image: url(~/icons/icon-column.png); }
 		}
@@ -50,10 +62,41 @@ layout {
 				text-overflow: ellipsis;
 			}
 		}
+
+		.children {
+			padding-left: 13px;
+		}
 	}
 
 	content {
-		position: relative;
 		flex: 1;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+
+		.query-input {
+			height: 160px;
+			background: #f5f5f5;
+			padding: 3px 0 0 3px;
+			font-family: Menlo, monospace;
+		}
+
+		.query-result {
+			flex: 1;
+			background: #fff;
+			position: relative;
+			border-top: 1px solid #ddd;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: -2px;
+				left: 0;
+				right: 0;
+				height: 3px;
+				background: transparent;
+				cursor: ns-resize;
+			}
+		}
 	}
 }

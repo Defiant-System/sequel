@@ -7,8 +7,8 @@
 		<meta name="repository" value="https://github.com/Defiant-System/sequel"/>
 		<meta name="width" value="720"/>
 		<meta name="height" value="460"/>
-		<meta name="top" value="195"/>
-		<meta name="left" value="120"/>
+		<meta name="top" value="205"/>
+		<meta name="left" value="90"/>
 		<meta name="minimize"/>
 		<meta name="maximize"/>
 		<meta name="resize"/>
@@ -19,5 +19,6 @@
 		<meta name="xsl" value="src/partials/templates.xsl"/>
 
 		@import "src/partials/menubar.xml"
+		@import "src/partials/toolbar.xml"
 	</Head>
 </Application>
