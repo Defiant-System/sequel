@@ -19,6 +19,6 @@
 		<meta name="xsl" value="src/partials/templates.xsl"/>
 
 		@import "src/partials/menubar.xml"
-		@import "src/partials/toolbar.xml"
+		@import "src/partials/caption-toolbar.xml"
 	</Head>
 </Application>

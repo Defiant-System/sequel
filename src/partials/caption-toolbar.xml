@@ -1,0 +1,12 @@
+<CaptionToolBar>
+	<Group>
+		<Tool name="Connect"/>
+	</Group>
+	<Group>
+		<Options>
+			<Tool symbol="icon-sidebar" state="active"/>
+			<Tool symbol="icon-results"/>
+		</Options>
+		<Tool symbol="icon-cogs"/>
+	</Group>
+</CaptionToolBar>
