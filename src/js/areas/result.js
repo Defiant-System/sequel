@@ -6,7 +6,7 @@
 		// fast references
 		this.els = {
 			el: window.find(".query-result"),
-			content: window.find("content"),
+			layout: window.find("layout"),
 		};
 	},
 	dispatch(event) {

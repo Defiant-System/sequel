@@ -1,6 +1,6 @@
 <CaptionToolBar>
 	<Group>
-		<Tool name="Connect"/>
+		<Tool name="Connect" state="disabled"/>
 	</Group>
 	<Group>
 		<Options>

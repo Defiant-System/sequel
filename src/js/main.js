@@ -1,4 +1,6 @@
 
+@import "./classes/file.js"
+
 @import "./modules/test.js"
 
 
@@ -42,6 +44,17 @@ const sequel = {
 				break;
 			case "new-file":
 				console.log(event);
+				break;
+			case "load-samples":
+				// opening image file from application package
+				event.samples.map(async name => {
+					// forward event to app
+					let file = await File.openLocal(name);
+					Self.dispatch({ ...event, type: "prepare-file", isSample: true, file });
+				});
+				break;
+			case "prepare-file":
+				Self.blankView.dispatch({ type: "hide-blank-view" });
 				break;
 			case "open-help":
 				karaqu.shell("fs -u '~/help/index.md'");

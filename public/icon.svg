@@ -16,7 +16,7 @@
 		.st8{
 			width: 100%;
 			height: 100%;
-			background: conic-gradient(#fff, #ccc, #eee, #aaa, #ccc, #aaa, #ccc, #eee, #aaa, #fff);
+			background: conic-gradient(from 10deg, #bbb, #ccc, #eee, #aaa, #ccc, #eee, #ccc, #eee, #aaa, #bbb);
 		}
 	</style>
 
