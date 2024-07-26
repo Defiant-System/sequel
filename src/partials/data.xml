@@ -1,0 +1,25 @@
+<Data>
+	<Sidebar>
+		<i type="server" name="Server 1" />
+		<i type="server" name="Server 2" state="expanded">
+			<i type="database" name="Database 1" state="expanded">
+				<i type="table" name="Table 1" />
+				<i type="table" name="Table 2" state="expanded">
+					<i type="column" name="id" />
+					<i type="column" name="name" />
+					<i type="column" name="city" />
+					<i type="column" name="department" />
+					<i type="column" name="salary" />
+				</i>
+				<i type="table" name="Table 3" />
+			</i>
+			<i type="table" name="Database 2" />
+			<i type="table" name="Database 3" />
+		</i>
+		<i type="server" name="Server 3">
+			<i type="database" name="Database 2"/>
+			<i type="database" name="Database 3"/>
+		</i>
+		<i type="server" name="Server 4" />
+	</Sidebar>
+</Data>
