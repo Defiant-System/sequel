@@ -54,6 +54,12 @@ layout {
 			height: 19px;
 			font-size: 0;
 
+			&[data-state="expanded"] {
+				> i.icon-arrow {
+					transform: rotate(90deg);
+				}
+			}
+
 			&.active {
 				> span i {
 					background: #aaa;

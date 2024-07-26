@@ -24,7 +24,7 @@
 		// console.log(event);
 		switch (event.type) {
 			// custom events
-			case "some-event":
+			case "select-tree-leaf":
 				break;
 		}
 	}

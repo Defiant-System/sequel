@@ -9,7 +9,14 @@
 
 	<xsl:template name="tree-leaf">
 		<div class="leaf">
-			<i class="icon-arrow"></i>
+			<xsl:if test="@state = 'expanded'">
+				<xsl:attribute name="data-state">expanded</xsl:attribute>
+			</xsl:if>
+			<i class="icon-arrow">
+				<xsl:if test="@leaf = 'end'">
+					<xsl:attribute name="class">icon-blank</xsl:attribute>
+				</xsl:if>
+			</i>
 			<i><xsl:attribute name="class"><xsl:call-template name="leaf-icon"/></xsl:attribute></i>
 			<span><i><xsl:value-of select="@name"/></i></span>
 		</div>

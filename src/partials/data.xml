@@ -5,11 +5,11 @@
 			<i type="database" name="Database 1" state="expanded">
 				<i type="table" name="Table 1" />
 				<i type="table" name="Table 2" state="expanded">
-					<i type="column" name="id" />
-					<i type="column" name="name" />
-					<i type="column" name="city" />
-					<i type="column" name="department" />
-					<i type="column" name="salary" />
+					<i leaf="end" type="column" name="id" />
+					<i leaf="end" type="column" name="name" />
+					<i leaf="end" type="column" name="city" />
+					<i leaf="end" type="column" name="department" />
+					<i leaf="end" type="column" name="salary" />
 				</i>
 				<i type="table" name="Table 3" />
 			</i>

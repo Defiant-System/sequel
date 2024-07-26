@@ -1,9 +1,13 @@
 <layout>
-	<sidebar>
+	<sidebar data-click="select-tree-leaf" data-area="sidebar">
 		@import "view-sidebar.htm"
 	</sidebar>
 	<content>
-		@import "view-query-input.htm"
-		@import "view-query-result.htm"
+		<div class="query-input" data-area="query">
+			@import "view-query-input.htm"
+		</div>
+		<div class="query-result" data-area="result">
+			@import "view-query-result.htm"
+		</div>
 	</content>
 </layout>
