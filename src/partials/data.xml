@@ -1,4 +1,10 @@
 <Data>
+	<Samples>
+		<i kind="db" path="/cdn/db/" name="employees.db"/>
+		<i kind="db" path="/cdn/db/" name="sales.db"/>
+		<i kind="sql" path="/cdn/db/" name="employees.sql"/>
+	</Samples>
+
 	<Sidebar>
 		<i type="server" name="Server 1" />
 		<i type="server" name="Server 2" state="expanded">

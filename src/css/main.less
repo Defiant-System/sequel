@@ -1,5 +1,30 @@
 
+// for dark theme
+@import "theme-dark";
+@import "blank-view";
+
+
 layout {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: inherit;
+
+	&.show-blank-view {
+		.blank-view { display: block; }
+		.work { display: none; }
+	}
+
+	&.show-work-view {
+		.blank-view { display: none; }
+		.work { display: flex; }
+	}
+}
+
+
+.work {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -7,8 +32,7 @@ layout {
 	bottom: 0;
 	display: flex;
 	flex-direction: row;
-	border-radius: inherit;
-
+	
 	sidebar {
 		position: relative;
 		width: 180px;

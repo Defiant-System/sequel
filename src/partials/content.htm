@@ -1,13 +1,19 @@
-<layout>
-	<sidebar data-click="click-tree" data-area="sidebar">
-		@import "view-sidebar.htm"
-	</sidebar>
-	<content>
-		<div class="query-input" data-area="query">
-			@import "view-query-input.htm"
-		</div>
-		<div class="query-result" data-area="result">
-			@import "view-query-result.htm"
-		</div>
-	</content>
+<layout class="show-blank-view">
+	<div class="blank-view" data-area="blankView">
+		<!-- blank view HTML goes here -->
+	</div>
+	
+	<div class="work">
+		<sidebar data-click="click-tree" data-area="sidebar">
+			@import "view-sidebar.htm"
+		</sidebar>
+		<content>
+			<div class="query-input" data-area="query">
+				@import "view-query-input.htm"
+			</div>
+			<div class="query-result" data-area="result">
+				@import "view-query-result.htm"
+			</div>
+		</content>
+	</div>
 </layout>

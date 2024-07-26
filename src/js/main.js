@@ -41,6 +41,7 @@ const sequel = {
 				}
 		}
 	},
+	blankView: @import "areas/blank-view.js",
 	sidebar: @import "areas/sidebar.js",
 	query: @import "areas/query.js",
 	result: @import "areas/result.js",
