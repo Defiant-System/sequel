@@ -13,8 +13,8 @@
 				</i>
 				<i type="table" name="Table 3" />
 			</i>
-			<i type="table" name="Database 2" />
-			<i type="table" name="Database 3" />
+			<i type="database" name="Database 2" />
+			<i type="database" name="Database 3" />
 		</i>
 		<i type="server" name="Server 3">
 			<i type="database" name="Database 2"/>

@@ -24,7 +24,21 @@
 		// console.log(event);
 		switch (event.type) {
 			// custom events
-			case "select-tree-leaf":
+			case "click-tree":
+				el = $(event.target);
+				if (el[0] === event.el[0]) return;
+
+				switch (true) {
+					case el.hasClass("icon-arrow"):
+						value = el.parent().data("state") === "expanded" ? "collapsed" : "expanded";
+						el.parent().data({ state: value });
+						break;
+					case el.hasClass("name"):
+						event.el.find(".active").removeClass("active");
+						el.parents(".leaf:first").addClass("active");
+						break;
+				}
+
 				break;
 		}
 	}

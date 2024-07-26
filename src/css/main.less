@@ -34,13 +34,16 @@ layout {
 				height: 13px;
 				top: 2px;
 			}
+
 			&.icon-arrow    {
 				background-image: url(~/icons/icon-arrow.png);
 				width: 13px;
 				height: 13px;
 				top: 2px;
+				transition: transform 100ms ease-in-out;
 				// background-color: rgba(#000,.1);
 			}
+
 			&.icon-server   { background-image: url(~/icons/icon-server.png); }
 			&.icon-database { background-image: url(~/icons/icon-database.png); }
 			&.icon-tables   { background-image: url(~/icons/icon-tables.png); }
@@ -60,9 +63,15 @@ layout {
 				}
 			}
 
+			&[data-state="collapsed"] {
+				& + .children {
+					max-height: 0;
+				}
+			}
+
 			&.active {
 				> span i {
-					background: #aaa;
+					background: #69d;
 					color: #fff;
 				}
 			}
@@ -81,12 +90,16 @@ layout {
 					padding: 2px 3px 1px 3px;
 					font-style: normal;
 					border-radius: 2px;
+					pointer-events: none;
 				}
 			}
 		}
 
 		.children {
 			padding-left: 13px;
+			overflow: hidden;
+			max-height: 700px;
+			transition: max-height 200ms ease-in-out;
 		}
 	}
 

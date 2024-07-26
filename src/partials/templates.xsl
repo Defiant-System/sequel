@@ -18,7 +18,7 @@
 				</xsl:if>
 			</i>
 			<i><xsl:attribute name="class"><xsl:call-template name="leaf-icon"/></xsl:attribute></i>
-			<span><i><xsl:value-of select="@name"/></i></span>
+			<span class="name"><i><xsl:value-of select="@name"/></i></span>
 		</div>
 		<xsl:if test="@state = 'expanded' and count(./*) &gt; 0">
 		<div class="children">
