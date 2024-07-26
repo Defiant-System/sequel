@@ -25,7 +25,24 @@ const sequel = {
 			// system events
 			case "window.init":
 				break;
+			case "open.file":
+				(event.files || [event]).map(async fHandle => {
+					console.log(fHandle);
+					// let file = await fHandle.open({ responseType: "text" });
+					// auto add first base "tab"
+					// Self.dispatch({ ...event, file, type: "tab.new" });
+				});
+				break;
 			// custom events
+			case "open-file":
+				window.dialog.open({
+					db: fsItem => Self.dispatch(fsItem),
+					sql: fsItem => Self.dispatch(fsItem),
+				});
+				break;
+			case "new-file":
+				console.log(event);
+				break;
 			case "open-help":
 				karaqu.shell("fs -u '~/help/index.md'");
 				break;

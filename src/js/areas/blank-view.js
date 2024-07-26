@@ -24,7 +24,20 @@
 		// console.log(event);
 		switch (event.type) {
 			// custom events
-			case "some-event":
+			case "new-file":
+				APP.dispatch({ ...event, type: "new-file" });
+				break;
+			case "open-filesystem":
+				APP.dispatch({ ...event, type: "open-file" });
+				break;
+			case "from-clipboard":
+				// TODO ?
+				break;
+			case "select-sample":
+				el = $(event.target);
+				if (!el.hasClass("sample")) return;
+
+				console.log(el);
 				break;
 		}
 	}
