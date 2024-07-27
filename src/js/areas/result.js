@@ -8,6 +8,9 @@
 			el: window.find(".query-result"),
 			layout: window.find("layout"),
 		};
+
+		// temp
+		this.dispatch({ type: "execute-query" });
 	},
 	dispatch(event) {
 		let APP = sequel,
@@ -17,7 +20,13 @@
 		// console.log(event);
 		switch (event.type) {
 			// custom events
-			case "some-event":
+			case "execute-query":
+				// render blank view
+				window.render({
+					template: "query-result",
+					match: `//Result`,
+					target: Self.els.el
+				});
 				break;
 		}
 	}

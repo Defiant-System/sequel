@@ -77,4 +77,26 @@
 	</xsl:choose>
 </xsl:template>
 
+
+<xsl:template name="query-result">
+	<table>
+		<thead>
+			<tr>
+				<xsl:for-each select="*[1]/@*">
+				<th><xsl:value-of select="name()"/></th>
+				</xsl:for-each>
+			</tr>
+		</thead>
+		<tbody>
+			<xsl:for-each select="./*">
+			<tr>
+				<xsl:for-each select="@*">
+				<td><xsl:value-of select="."/></td>
+				</xsl:for-each>
+			</tr>
+			</xsl:for-each>
+		</tbody>
+	</table>
+</xsl:template>
+
 </xsl:stylesheet>
