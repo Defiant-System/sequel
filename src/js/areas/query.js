@@ -15,16 +15,17 @@
 			        mode: "text/x-mariadb",
 					indentWithTabs: true,
 					smartIndent: true,
-					lineWrapping: false,
+					// lineWrapping: "scroll",
 					lineNumbers: true,
 					matchBrackets : true,
-					extraKeys: {"Ctrl-Space": "autocomplete"},
-					hintOptions: {
-						tables: {
-							users: ["name", "score", "birthDate"],
-							countries: ["name", "population", "size"]
-						}
-					}
+					scrollbarStyle: "simple",
+					// extraKeys: { "Ctrl-Space": "autocomplete" },
+					// hintOptions: {
+					// 	tables: {
+					// 		users: ["name", "score", "birthDate"],
+					// 		countries: ["name", "population", "size"]
+					// 	}
+					// }
 				};
 			CodeMirror.fromTextArea(this.els.el.find("textarea")[0], cmOptions);
 		}, 100);

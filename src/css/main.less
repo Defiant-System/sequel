@@ -4,8 +4,8 @@
 @import "blank-view";
 // external
 @import "external/cm";
-@import "external/code";
 @import "external/show-hint";
+@import "external/simplescrollbars";
 
 
 layout {
@@ -139,10 +139,18 @@ layout {
 	}
 
 	.query-input {
-		height: 160px;
-		background: #fff;
-		padding: 3px 0 0 3px;
-		font-family: Menlo, monospace;
+		height: 190px;
+		// background: #fff;
+		// font-family: Menlo, monospace;
+		// padding: 3px 0 0 3px;
+
+		.CodeMirror {
+			/* Set height, width, borders, and global font properties here */
+			// font-family: monospace;
+			height: inherit;
+			// color: black;
+			// direction: ltr;
+		}
 	}
 
 	.query-result {
