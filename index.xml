@@ -1,4 +1,7 @@
 <Application>
+	<Build>
+		<task action="skip" source="src/js/bundle.js" destination="public/js/bundle.js"/>
+	</Build>
 	<Head>
 		<meta name="id" value="sequel"/>
 		<meta name="title" value="Sequel" version="1.0"/>

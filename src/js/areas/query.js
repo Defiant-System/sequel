@@ -8,6 +8,20 @@
 			el: window.find(".query-input"),
 			layout: window.find("layout"),
 		};
+
+		// window.editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+		// 	mode: "text/x-mariadb",
+		// 	indentWithTabs: true,
+		// 	smartIndent: true,
+		// 	lineNumbers: true,
+		// 	matchBrackets : true,
+		// 	autofocus: true,
+		// 	extraKeys: {"Ctrl-Space": "autocomplete"},
+		// 	hintOptions: {tables: {
+		// 		users: ["name", "score", "birthDate"],
+		// 		countries: ["name", "population", "size"]
+		// 	}}
+		// });
 	},
 	dispatch(event) {
 		let APP = sequel,

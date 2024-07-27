@@ -3,6 +3,11 @@
 
 @import "./modules/test.js"
 
+let {
+	CodeMirror,
+} = await window.fetch("~/js/bundle.js");
+
+
 
 const sequel = {
 	init() {
