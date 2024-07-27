@@ -9,26 +9,24 @@
 			layout: window.find("layout"),
 		};
 
+		let cmOptions = {
+		        mode: "text/x-mariadb",
+				indentWithTabs: true,
+				smartIndent: true,
+				// lineWrapping: "scroll",
+				lineNumbers: true,
+				matchBrackets : true,
+				// scrollbarStyle: "overlay",
+				extraKeys: { "Ctrl-Space": "autocomplete" },
+				hintOptions: {
+					tables: {
+						users: ["name", "score", "birthDate"],
+						countries: ["name", "population", "size"]
+					}
+				}
+			};
 		// delayed init (!?)
-		setTimeout(() => {
-			let cmOptions = {
-			        mode: "text/x-mariadb",
-					indentWithTabs: true,
-					smartIndent: true,
-					// lineWrapping: "scroll",
-					lineNumbers: true,
-					matchBrackets : true,
-					scrollbarStyle: "simple",
-					// extraKeys: { "Ctrl-Space": "autocomplete" },
-					// hintOptions: {
-					// 	tables: {
-					// 		users: ["name", "score", "birthDate"],
-					// 		countries: ["name", "population", "size"]
-					// 	}
-					// }
-				};
-			CodeMirror.fromTextArea(this.els.el.find("textarea")[0], cmOptions);
-		}, 100);
+		setTimeout(() => CodeMirror.fromTextArea(this.els.el.find("textarea")[0], cmOptions), 1);
 	},
 	dispatch(event) {
 		let APP = sequel,

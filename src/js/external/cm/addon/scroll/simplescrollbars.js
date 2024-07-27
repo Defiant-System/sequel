@@ -7,7 +7,9 @@
 	function Bar(cls, orientation, scroll) {
 		this.orientation = orientation;
 		this.scroll = scroll;
-		this.screen = this.total = this.size = 1;
+		this.screen =
+		this.total =
+		this.size = 1;
 		this.pos = 0;
 
 		this.node = document.createElement("div");

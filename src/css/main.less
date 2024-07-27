@@ -139,17 +139,15 @@ layout {
 	}
 
 	.query-input {
-		height: 190px;
-		// background: #fff;
-		// font-family: Menlo, monospace;
-		// padding: 3px 0 0 3px;
+		position: relative;
+		height: 210px;
 
 		.CodeMirror {
-			/* Set height, width, borders, and global font properties here */
-			// font-family: monospace;
-			height: inherit;
-			// color: black;
-			// direction: ltr;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 		}
 	}
 
@@ -177,7 +175,7 @@ layout {
 			border: 1px solid rgba(#000,.15);
 			border-collapse: collapse;
 			border-radius: 3px;
-			font-size: 12px;
+			font-size: 13px;
 
 			thead {
 
@@ -198,7 +196,7 @@ layout {
 				background: #f0f0f0;
 				color: #666;
 				font-weight: normal;
-				padding: 5px 9px 5px 5px;
+				padding: 5px 13px 5px 5px;
 				text-align: left;
 				border-bottom: 1px solid #cecece;
 
@@ -223,7 +221,7 @@ layout {
 			}
 
 			td {
-				padding: 5px 9px 4px 5px;
+				padding: 5px 13px 4px 6px;
 				text-align: left;
 
 				&:hover {
