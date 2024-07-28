@@ -1,6 +1,6 @@
 <Application>
 	<Build>
-		<task actio1n="skip" source="src/js/bundle.js" destination="public/js/bundle.js"/>
+		<task action="skip" source="src/js/bundle.js" destination="public/js/bundle.js"/>
 	</Build>
 	<Head>
 		<meta name="id" value="sequel"/>

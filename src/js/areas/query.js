@@ -26,7 +26,7 @@
 				}
 			};
 		// delayed init (!?)
-		setTimeout(() => CodeMirror.fromTextArea(this.els.el.find("textarea")[0], cmOptions), 1);
+		setTimeout(() => CodeMirror.fromTextArea(this.els.el.find("textarea")[0], cmOptions), 100);
 	},
 	dispatch(event) {
 		let APP = sequel,

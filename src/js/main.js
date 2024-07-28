@@ -3,12 +3,23 @@
 @import "./modules/test.js"
 
 
+// load bundled resources
 let {
 	CodeMirror,
+	dumper,
+	SQLite,
+	sqlite3InitModule,
 } = await window.fetch("~/js/bundle.js");
 
 
+// initiate sql lite module
+let sqlite3 = await sqlite3InitModule({
+    print: console.log,
+    printErr: console.error,
+});
 
+
+// application
 const sequel = {
 	init() {
 		// fast references
@@ -18,6 +29,14 @@ const sequel = {
 		Object.keys(this)
 			.filter(i => typeof this[i].init === "function")
 			.map(i => this[i].init(this));
+
+		// let version = Sqlite3.capi.sqlite3_libversion();
+		// console.log( version );
+		// let db = new sqlite3.oo1.DB();
+		// let name = "employees.db";
+		// let path = "http://localhost:8000/sqlime-main/employees.db";
+		// let mydb = new SQLite(name, path, sqlite3.capi, db);
+		// console.log( mydb.tables );
 
 		// DEV-ONLY-START
 		Test.init(this);
@@ -60,6 +79,8 @@ const sequel = {
 				break;
 			case "prepare-file":
 				Self.blankView.dispatch({ type: "hide-blank-view" });
+				
+				console.log(event.file);
 				break;
 			case "open-help":
 				karaqu.shell("fs -u '~/help/index.md'");

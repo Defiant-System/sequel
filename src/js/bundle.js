@@ -6,6 +6,16 @@
 @import "./external/cm/addon/hint/sql-hint.js"
 @import "./external/cm/sql.js"
 
+
+import dumper from "./external/sqlite/dumper.js";
+import { SQLite } from "./external/sqlite/db.js";
+
+@import "./external/sqlite/sqlite3.js"
+
+
 module.exports = {
 	CodeMirror,
+	dumper,
+	SQLite,
+	sqlite3InitModule,
 };
