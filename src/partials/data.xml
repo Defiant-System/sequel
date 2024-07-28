@@ -6,27 +6,27 @@
 	</Samples>
 
 	<Sidebar>
-		<i type="server" name="Server 1" />
-		<i type="file" name="sales.db" state="expanded">
-			<i type="database" name="Database 1" state="expanded">
-				<i type="table" name="Table 1" />
-				<i type="table" name="Table 2" state="expanded">
-					<i leaf="end" type="column" name="id" />
-					<i leaf="end" type="column" name="name" />
-					<i leaf="end" type="column" name="city" />
-					<i leaf="end" type="column" name="department" />
-					<i leaf="end" type="column" name="salary" />
+		<i icon="server" name="Server 1" />
+		<i icon="file" name="sales.db" state="expanded">
+			<i icon="database" name="Database 1" state="expanded">
+				<i icon="table" name="Table 1" />
+				<i icon="table" name="Table 2" state="expanded">
+					<i leaf="end" icon="column" name="id" />
+					<i leaf="end" icon="column" name="name" />
+					<i leaf="end" icon="column" name="city" />
+					<i leaf="end" icon="column" name="department" />
+					<i leaf="end" icon="column" name="salary" />
 				</i>
-				<i type="table" name="Table 3" />
+				<i icon="table" name="Table 3" />
 			</i>
-			<i type="database" name="Database 2" />
-			<i type="database" name="Database 3" />
+			<i icon="database" name="Database 2" />
+			<i icon="database" name="Database 3" />
 		</i>
-		<i type="server" name="Server 3">
-			<i type="database" name="Database 2"/>
-			<i type="database" name="Database 3"/>
+		<i icon="server" name="Server 3">
+			<i icon="database" name="Database 2"/>
+			<i icon="database" name="Database 3"/>
 		</i>
-		<i type="server" name="Server 4" />
+		<i icon="server" name="Server 4" />
 	</Sidebar>
 
 	<Result>

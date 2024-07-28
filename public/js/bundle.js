@@ -138,7 +138,7 @@ const QUERIES = {
         and name not like 'sqlean_%'`,
     tableContent: "select * from {} limit 10",
     tableInfo: `select
-      iif(pk=1, '✓', '') as pk, name, type, iif("notnull"=0, '✓', '') as "null?"
+      iif(pk=1, '1', '') as pk, name, type, iif("notnull"=0, '1', '') as "null?"
       from pragma_table_info('{}')`,
 };
 

@@ -2,8 +2,9 @@
 class File {
 	constructor(fsFile) {
 		// save reference to original FS file
-		this._file = fsFile || new karaqu.File({ kind: "txt" });
-
+		this._file = fsFile || new karaqu.File({ kind: "sql" });
+		//console.log(fsFile);
+		
 		let db = new sqlite3.oo1.DB();
 		switch (fsFile.kind) {
 			case "sql":

@@ -68,12 +68,12 @@
 
 <xsl:template name="leaf-icon">
 	<xsl:choose>
-		<xsl:when test="@type = 'file'">icon-file</xsl:when>
-		<xsl:when test="@type = 'server'">icon-server</xsl:when>
-		<xsl:when test="@type = 'database'">icon-database</xsl:when>
-		<xsl:when test="@type = 'table'">icon-table</xsl:when>
-		<xsl:when test="@type = 'database'">icon-database</xsl:when>
-		<xsl:when test="@type = 'column'">icon-column</xsl:when>
+		<xsl:when test="@icon = 'file'">icon-file</xsl:when>
+		<xsl:when test="@icon = 'server'">icon-server</xsl:when>
+		<xsl:when test="@icon = 'database'">icon-database</xsl:when>
+		<xsl:when test="@icon = 'table'">icon-table</xsl:when>
+		<xsl:when test="@icon = 'database'">icon-database</xsl:when>
+		<xsl:when test="@icon = 'column'">icon-column</xsl:when>
 		<xsl:otherwise>icon-blank</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
