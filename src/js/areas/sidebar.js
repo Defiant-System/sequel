@@ -68,12 +68,9 @@
 						} else {
 							let xChildren = pEl.nextAll("div:first");
 							if (!xChildren.hasClass("children") || !xChildren.length) {
-								// 	let uId = el.parents(".leaf:first").data("uId");
-								// 	console.log("render children", uId);
-
 								// render HTML
 								window.render({
-									template: "tree",
+									template: "leaf-children",
 									match: `//Data/Sidebar//*[@uId="${pEl.data("uId")}"]`,
 									after: pEl,
 								});

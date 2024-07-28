@@ -60,10 +60,15 @@
 		<span class="name"><i><xsl:value-of select="@name"/></i></span>
 	</div>
 	<xsl:if test="@state = 'expanded' and count(./*) &gt; 0">
+		<xsl:call-template name="leaf-children"/>
+	</xsl:if>
+</xsl:template>
+
+
+<xsl:template name="leaf-children">
 	<div class="children">
 		<xsl:call-template name="tree"/>
 	</div>
-	</xsl:if>
 </xsl:template>
 
 
