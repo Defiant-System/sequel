@@ -7588,7 +7588,8 @@ Total of`, C, "op(s) for", N, "ms (incl. " + U + " ms of waiting on the async si
                             let n = r.defaultProxyUri;
                             return i.scriptInfo.sqlite3Dir && (r.defaultProxyUri = i.scriptInfo.sqlite3Dir + n),
                             r().catch(s=>{
-                                i.config.warn("Ignoring inability to install OPFS sqlite3_vfs:", s.message)
+                                // hbi disable: this is faulty warning & poorly written code
+                                // i.config.warn("Ignoring inability to install OPFS sqlite3_vfs:", s.message)
                             }
                             )
                         } catch (n) {
