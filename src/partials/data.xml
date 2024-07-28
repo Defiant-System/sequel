@@ -7,7 +7,7 @@
 
 	<Sidebar>
 		<i type="server" name="Server 1" />
-		<i type="server" name="Server 2" state="expanded">
+		<i type="file" name="sales.db" state="expanded">
 			<i type="database" name="Database 1" state="expanded">
 				<i type="table" name="Table 1" />
 				<i type="table" name="Table 2" state="expanded">

@@ -78,12 +78,14 @@ const sequel = {
 				});
 				break;
 			case "prepare-file":
+				// save reference to file
+				Self.activeFile = event.file;
 				// hide blank view
 				Self.blankView.dispatch({ type: "hide-blank-view" });
 				// init query view
 				Self.query.dispatch({ type: "init-query-view" });
 				// parse tables
-				console.log(event.file.database.tables);
+				Self.sidebar.dispatch({ type: "render-sidebar" });
 				break;
 			case "open-help":
 				karaqu.shell("fs -u '~/help/index.md'");

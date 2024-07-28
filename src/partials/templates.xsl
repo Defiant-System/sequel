@@ -68,6 +68,7 @@
 
 <xsl:template name="leaf-icon">
 	<xsl:choose>
+		<xsl:when test="@type = 'file'">icon-file</xsl:when>
 		<xsl:when test="@type = 'server'">icon-server</xsl:when>
 		<xsl:when test="@type = 'database'">icon-database</xsl:when>
 		<xsl:when test="@type = 'table'">icon-table</xsl:when>

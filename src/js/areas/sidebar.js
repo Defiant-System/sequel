@@ -24,6 +24,12 @@
 		// console.log(event);
 		switch (event.type) {
 			// custom events
+			case "render-sidebar":
+				APP.activeFile.database.tables.map(name => {
+					let resp = APP.activeFile.database.getTableInfo(name);
+					console.log( resp );
+				});
+				break;
 			case "click-tree":
 				el = $(event.target);
 				if (el[0] === event.el[0]) return;
