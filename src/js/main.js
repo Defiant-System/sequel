@@ -78,9 +78,12 @@ const sequel = {
 				});
 				break;
 			case "prepare-file":
+				// hide blank view
 				Self.blankView.dispatch({ type: "hide-blank-view" });
-				
-				console.log(event.file);
+				// init query view
+				Self.query.dispatch({ type: "init-query-view" });
+				// parse tables
+				console.log(event.file.database.tables);
 				break;
 			case "open-help":
 				karaqu.shell("fs -u '~/help/index.md'");
