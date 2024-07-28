@@ -1,8 +1,5 @@
 
-SELECT b.name AS customer_name,
-		count( * ) AS total
-	FROM order a
-		INNER JOIN customer b ON a.customer_id = b.id
-	WHERE a.date BETWEEN '2022-12-01' AND '2023-01-01'
-		GROUP BY a.customer_id
-		ORDER BY total DESC;
+SELECT *
+  FROM employees
+  WHERE city LIKE 'B%'
+    ORDER BY id DESC;
