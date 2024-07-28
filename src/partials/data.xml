@@ -6,7 +6,7 @@
 	</Samples>
 
 	<Sidebar>
-		<i icon="server" name="Server 1" />
+		<!-- <i icon="server" name="Server 1" />
 		<i icon="file" name="sales.db" state="expanded">
 			<i icon="database" name="Database 1" state="expanded">
 				<i icon="table" name="Table 1" />
@@ -26,7 +26,7 @@
 			<i icon="database" name="Database 2"/>
 			<i icon="database" name="Database 3"/>
 		</i>
-		<i icon="server" name="Server 4" />
+		<i icon="server" name="Server 4" /> -->
 	</Sidebar>
 
 	<Result>

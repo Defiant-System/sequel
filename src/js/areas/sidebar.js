@@ -46,6 +46,9 @@
 				// insert nodes into "Data"
 				$.xmlFromString(value.join("")).selectNodes(`/i`).map(xFile => xSidebar.appendChild(xFile));
 
+				// tag all items with "uniq-id"
+				xSidebar.selectNodes(`.//*`).map((x, i) => x.setAttribute("uId", i+1));
+
 				// render HTML
 				window.render({
 					template: "tree",
@@ -63,8 +66,17 @@
 						if (pEl.data("state") === "expanded") {
 							pEl.data({ state: "collapsed" });
 						} else {
-							if (!pEl.nextAll(".children").length) {
-								console.log("render children");
+							let xChildren = pEl.nextAll("div:first");
+							if (!xChildren.hasClass("children") || !xChildren.length) {
+								// 	let uId = el.parents(".leaf:first").data("uId");
+								// 	console.log("render children", uId);
+
+								// render HTML
+								window.render({
+									template: "tree",
+									match: `//Data/Sidebar//*[@uId="${pEl.data("uId")}"]`,
+									after: pEl,
+								});
 							}
 							pEl.data({ state: "expanded" });
 						}
