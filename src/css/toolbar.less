@@ -54,11 +54,24 @@
 			span {
 				&:first-child {
 					flex: 1;
+					position: relative;
 					text-align: left;
+					padding-left: 21px;
+
+					&:before {
+						content: "";
+						position: absolute;
+						top: -2px;
+						left: -1px;
+						width: 17px;
+						height: 17px;
+						background: url(~/icons/icon-display-db.png) 50% 50%/contain no-repeat;
+						opacity: .65;
+					}
 				}
 
 				&:last-child {
-					width: 180px;
+					width: 240px;
 					text-align: right;
 				}
 

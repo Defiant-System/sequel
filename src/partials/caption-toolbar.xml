@@ -8,7 +8,7 @@
 	<Group class="display">
 		<Field class="blank-display">
 			<span>SQLite v<i class="dbVersion">&#160;</i></span>
-			<span>Query: <i class="qryRows">&#160;</i> - <i class="qryTime">&#160;</i></span>
+			<span>Result: <i class="qryRows">&#160;</i> - <i class="qryTime">&#160;</i></span>
 		</Field>
 	</Group>
 	<Group class="right-tools">
