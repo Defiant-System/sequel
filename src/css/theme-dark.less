@@ -1,4 +1,87 @@
 
 &[data-theme="dark"] {
-	
+	&.win-body-focused_ {
+		.blank-view {
+			color: #ddd;
+			text-shadow: 0 1px 0 rgba(#000,.125);
+
+			h2 {
+				color: #ddd;
+			}
+
+			> div {
+				> h3 {
+					color: #ddd;
+				}
+			}
+
+			.block-samples {
+				color: #bbb;
+
+				.sample {
+					&:after {
+						filter: hue-rotate(135deg) brightness(1.5) drop-shadow(0 1px 0 rgba(#000,.5));
+					}
+				}
+			}
+		}
+	}
+
+	.blank-view {
+		background: transparent;
+		color: #999;
+		text-shadow: 0 0 0;
+
+		h2 {
+			color: #aaa;
+		}
+
+		> div {
+			> h3 {
+				color: #aaa;
+			}
+		}
+
+		.block-buttons {
+			.btn {
+				background: rgba(#000,.25);
+				box-shadow: inset 0 1px 0 rgba(#000,.075),
+							0 0 0 2px rgba(#fff,.35);
+
+				&:hover:not(.disabled_) {
+					box-shadow: 0 0 0 3px #489bf770,
+								0 0 0 2px #489bf7;
+				}
+				
+				i {
+					left: -1px;
+					opacity: .35;
+					filter: invert(1) brightness(2);
+				}
+			}
+		}
+
+		.block-samples {
+			color: #888;
+
+			.sample {
+				background-color: rgba(#fff,.15);
+
+				&:hover {
+					span {
+						color: #eee;
+					}
+				}
+
+				&:before {
+					background: rgba(#000,.25);
+					box-shadow: inset 0 1px 0 rgba(#000,.075);
+				}
+				
+				&:after {
+					filter: hue-rotate(135deg) brightness(1.5);
+				}
+			}
+		}
+	}
 }
