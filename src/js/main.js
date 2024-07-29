@@ -52,8 +52,11 @@ const sequel = {
 				break;
 			case "open.file":
 				(event.files || [event]).map(async fHandle => {
-					let file = await fHandle.open({ responseType: "arrayBuffer" });
-					// Self.dispatch({ ...event, type: "prepare-file", file: new File(file) });
+					let responseType = fHandle.kind === "db" ? "arrayBuffer" : "text",
+						file = await fHandle.open({ responseType });
+					// read arraybuffer if "db"
+					if (fHandle.kind === "db") file.data = new Uint8Array(file.arrayBuffer);
+					Self.dispatch({ ...event, type: "prepare-file", file: new File(file) });
 				});
 				break;
 			// custom events
