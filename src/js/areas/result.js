@@ -26,6 +26,9 @@
 				str = [];
 				value = event.value.trim();
 
+				// start timer
+				Timer.start();
+
 				try {
 					result = APP.activeFile.database.execute(value);
 				} catch (e) {
@@ -34,6 +37,17 @@
 						values: [e.toString().slice(28).split("\n")],
 					}
 				}
+
+				// stop timer
+				let t = Timer.finish();
+
+				APP.toolbar.dispatch({
+					type: "update-display",
+					data: {
+						qryRows: `${result.values.length} rows`,
+						qryTime: `${t} ms`,
+					}
+				});
 
 				// console.log( result );
 				result.values.map(row => {

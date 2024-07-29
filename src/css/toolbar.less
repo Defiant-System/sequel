@@ -21,21 +21,25 @@
 			left: 5px;
 			right: 5px;
 			bottom: 0;
-			height: auto;
+			height: 29px;
 			width: auto;
 			z-index: 3;
+			display: flex;
 			background: transparent;
-			font-size: 15px;
+			color: #797;
+			line-height: 1;
+			font-size: 14px;
 			font-family: Lucida Console;
-			text-transform: uppercase;
-			text-shadow: 0 1px 0 rgba(0,0,0,.175);
+			// text-transform: uppercase;
+			text-shadow: 0 1px 0 rgba(#252,.15),
+						0 2px 0 rgba(#252,.15);
 			border: 0;
-			padding: 0;
+			padding: 11px 7px 0;
 			box-shadow: 0 0 0;
 
 			&:before {
 				background-size: 79px 17px;
-				background-position: 42% 50%;
+				top: 5px;
 				bottom: 0;
 			}
 
@@ -44,10 +48,30 @@
 					display: none;
 				}
 			}
+
+			span {
+				&:first-child {
+					flex: 1;
+					text-align: left;
+				}
+
+				&:last-child {
+					width: 180px;
+					text-align: right;
+				}
+
+				i {
+					font-style: normal;
+				}
+			}
 		}
 	}
 
-	&.cogs {
-		width: auto;
+	&.left-tools {
+		width: 13%;
+	}
+
+	&.right-tools {
+		width: calc( 13% + 67px );
 	}
 }

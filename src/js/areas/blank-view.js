@@ -26,9 +26,13 @@
 			// custom events
 			case "show-blank-view":
 				Self.els.layout.removeClass("show-work-view").addClass("show-blank-view");
+				// sync toolbar UI
+				APP.toolbar.dispatch(event);
 				break;
 			case "hide-blank-view":
 				Self.els.layout.removeClass("show-blank-view").addClass("show-work-view");
+				// sync toolbar UI
+				APP.toolbar.dispatch(event);
 				break;
 			case "new-file":
 				APP.dispatch({ ...event, type: "new-file" });

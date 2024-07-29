@@ -1,5 +1,6 @@
 
 @import "./classes/file.js"
+@import "./modules/timer.js"
 @import "./modules/test.js"
 
 
@@ -30,13 +31,11 @@ const sequel = {
 			.filter(i => typeof this[i].init === "function")
 			.map(i => this[i].init(this));
 
-		// let version = Sqlite3.capi.sqlite3_libversion();
-		// console.log( version );
-		// let db = new sqlite3.oo1.DB();
-		// let name = "employees.db";
-		// let path = "http://localhost:8000/sqlime-main/employees.db";
-		// let mydb = new SQLite(name, path, sqlite3.capi, db);
-		// console.log( mydb.tables );
+		// DB version
+		this.toolbar.dispatch({
+			type: "update-display",
+			data: { dbVersion: sqlite3.capi.sqlite3_libversion() }
+		});
 
 		// DEV-ONLY-START
 		Test.init(this);
