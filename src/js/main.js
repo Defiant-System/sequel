@@ -53,10 +53,8 @@ const sequel = {
 				break;
 			case "open.file":
 				(event.files || [event]).map(async fHandle => {
-					console.log(fHandle);
-					// let file = await fHandle.open({ responseType: "text" });
-					// auto add first base "tab"
-					// Self.dispatch({ ...event, file, type: "tab.new" });
+					let file = await fHandle.open({ responseType: "arrayBuffer" });
+					Self.dispatch({ ...event, type: "prepare-file", isSample: true, file });
 				});
 				break;
 			// custom events
@@ -90,6 +88,9 @@ const sequel = {
 			case "open-help":
 				karaqu.shell("fs -u '~/help/index.md'");
 				break;
+			// proxy events
+			case "execute-query":
+				return Self.query.dispatch(event);
 			default:
 				el = event.el;
 				if (!el && event.origin) el = event.origin.el;
@@ -102,6 +103,7 @@ const sequel = {
 				}
 		}
 	},
+	toolbar: @import "areas/toolbar.js",
 	blankView: @import "areas/blank-view.js",
 	sidebar: @import "areas/sidebar.js",
 	query: @import "areas/query.js",

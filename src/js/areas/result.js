@@ -23,13 +23,21 @@
 		switch (event.type) {
 			// custom events
 			case "execute-query":
-				value = event.value.trim();
-				result = APP.activeFile.database.execute(value);
 				str = [];
+				value = event.value.trim();
+
+				try {
+					result = APP.activeFile.database.execute(value);
+				} catch (e) {
+					result = {
+						columns: ["SQLite3Error"],
+						values: [e.toString().slice(28).split("\n")],
+					}
+				}
 
 				// console.log( result );
 				result.values.map(row => {
-					let attr = result.columns.map((k, i) => `${k}="${row[i]}"`);
+					let attr = result.columns.map((k, i) => `${k}="${row[i].toString().escapeHtml()}"`);
 					str.push(`<i ${attr.join(" ")}/>`);
 				});
 				

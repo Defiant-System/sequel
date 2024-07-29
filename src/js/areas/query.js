@@ -37,6 +37,14 @@
 				};
 				Self.editor = CodeMirror.fromTextArea(Self.els.el.find("textarea")[0], value);
 				break;
+			case "build-first-query":
+				if (!APP.activeFile.database.tables.length) return;
+				// query first table available
+				value = `SELECT *\n\tFROM ${APP.activeFile.database.tables[0]}\n\tLIMIT 10;\n`;
+				Self.editor.doc.setValue(value);
+				// auto execute query
+				Self.dispatch({ type: "execute-query" });
+				break;
 			case "execute-query":
 				value = Self.editor.doc.getValue();
 				APP.result.dispatch({ ...event, value });

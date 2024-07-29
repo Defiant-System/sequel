@@ -3,10 +3,10 @@
 		<Tool name="Connect" state="disabled"/>
 	</Group>
 	<Group>
-		<Options>
-			<Tool symbol="icon-sidebar" state="active"/>
-			<Tool symbol="icon-results"/>
+		<Options type="grouped">
+			<Tool symbol="icon-sidebar" click="toggle-sidebar" state="active"/>
+			<Tool symbol="icon-results" click="toggle-query-view" state="active"/>
 		</Options>
-		<Tool symbol="icon-cogs"/>
+		<Tool symbol="icon-cogs" menu="query-view"/>
 	</Group>
 </CaptionToolBar>

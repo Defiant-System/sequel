@@ -38,7 +38,7 @@
 				// close tags
 				str.push(`</i>`);
 				str.push(`</i>`);
-				
+
 				// remove "old" data
 				let xSidebar = window.bluePrint.selectSingleNode(`//Data/Sidebar`);
 				while (xSidebar.hasChildNodes()) xSidebar.removeChild(xSidebar.firstChild);
@@ -55,6 +55,9 @@
 					match: "//Data/Sidebar",
 					target: Self.els.el,
 				});
+
+				// initial DB query
+				APP.query.dispatch({ type: "build-first-query" });
 				break;
 			case "click-tree":
 				el = $(event.target);

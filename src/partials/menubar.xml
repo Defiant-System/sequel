@@ -4,6 +4,12 @@
 		<Menu type="divider"/>
 		<Menu name="Quit Sequel" shell="win -c"/>
 	</Menu>
+	<Menu name="View" for="query-view">
+		<Menu name="Run Query" click="execute-query" hotkey="alt+return"/>
+		<Menu type="divider"/>
+		<Menu name="Toggle Sidebar" click="toggle-sidebar"/>
+		<Menu name="Toggle Query View" click="toggle-query-view"/>
+	</Menu>
 	<Menu name="Help">
 		<Menu name="Help" click="open-help"/>
 		<Menu type="divider"/>
