@@ -53,8 +53,7 @@ const sequel = {
 			case "open.file":
 				(event.files || [event]).map(async fHandle => {
 					let file = await fHandle.open({ responseType: "arrayBuffer" });
-					console.log( file );
-					// Self.dispatch({ ...event, type: "prepare-file", isSample: true, file });
+					// Self.dispatch({ ...event, type: "prepare-file", file: new File(file) });
 				});
 				break;
 			// custom events
