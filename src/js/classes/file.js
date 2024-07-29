@@ -54,7 +54,7 @@ class File {
 							break;
 						case "sql":
 							// here the file as a blob
-							fsFile.blob = resp.blob();
+							fsFile.blob = await resp.blob();
 
 							let reader = new FileReader();
 							reader.addEventListener("load", () => {

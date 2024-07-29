@@ -1,11 +1,18 @@
-<CaptionToolBar>
+<CaptionToolBar has="display">
 	<Group>
 		<Options type="grouped">
 			<Tool symbol="icon-sidebar" click="toggle-sidebar" state="active"/>
 			<Tool symbol="icon-results" click="toggle-query-view" state="active"/>
 		</Options>
 	</Group>
-	<Group>
+	<Group class="display">
+		<Field class="blank-display">
+			<span class="db-type">SQLite 3.45.0</span>
+			<span class="db-tables">2</span>
+			<span class="db-query-result">10 rows - 2ms</span>
+		</Field>
+	</Group>
+	<Group class="cogs">
 		<Tool symbol="icon-cogs" menu="query-view"/>
 	</Group>
 </CaptionToolBar>
