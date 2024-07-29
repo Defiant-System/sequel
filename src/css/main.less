@@ -25,6 +25,16 @@ layout {
 		.blank-view { display: none; }
 		.work { display: flex; }
 	}
+
+	&.hide-sidebar {
+		sidebar {
+			width: 0;
+
+			.sidebar-wrapper {
+				left: -180px;
+			}
+		}
+	}
 }
 
 
@@ -40,8 +50,20 @@ layout {
 	sidebar {
 		position: relative;
 		width: 180px;
-		// background-color: rgba(#333,.1);
-		padding: 3px 0 0 2px;
+		overflow: hidden;
+		transition: width 300ms ease-in-out;
+
+		.sidebar-wrapper {
+			// background-color: rgba(#333,.1);
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 180px;
+			overflow: auto;
+			padding: 3px 0 0 2px;
+			transition: left 300ms ease-in-out;
+		}
 
 		[class*="icon-"],
 		[class^="icon-"] {

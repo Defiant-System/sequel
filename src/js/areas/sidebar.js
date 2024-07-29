@@ -6,6 +6,7 @@
 		// fast references
 		this.els = {
 			el: window.find("sidebar"),
+			wrapper: window.find(".sidebar-wrapper"),
 			layout: window.find("layout"),
 		};
 	},
@@ -53,7 +54,7 @@
 				window.render({
 					template: "tree",
 					match: "//Data/Sidebar",
-					target: Self.els.el,
+					target: Self.els.wrapper,
 				});
 
 				// initial DB query
@@ -86,7 +87,9 @@
 						el.parents(".leaf:first").addClass("active");
 						break;
 				}
-
+				break;
+			case "toggle-sidebar":
+				Self.els.layout.toggleClass("hide-sidebar", event.value);
 				break;
 		}
 	}
