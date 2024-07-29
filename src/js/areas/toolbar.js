@@ -7,6 +7,7 @@
 		this.els = {
 			el: window.find(`div[data-area="toolbar"]`),
 			display: window.find(`.display`),
+			layout: window.find(`layout`),
 		};
 	},
 	dispatch(event) {
@@ -24,6 +25,12 @@
 			case "hide-blank-view":
 				Self.els.el.find(".toolbar-tool_").removeClass("tool-disabled_");
 				Self.els.display.find("> .toolbar-field_").removeClass("blank-display");
+				// toggle sidebar button
+				value = Self.els.layout.hasClass("hide-sidebar");
+				Self.els.el.find(`.toolbar-tool_[data-click="toggle-sidebar"]`).toggleClass("tool-active_", value);
+				// toggle sidebar button
+				value = Self.els.layout.hasClass("hide-query-view");
+				Self.els.el.find(`.toolbar-tool_[data-click="toggle-query-view"]`).toggleClass("tool-active_", value);
 				break;
 			case "update-display":
 				Object.keys(event.data).map(key => Self.els.display.find(`.${key}`).html(event.data[key]));

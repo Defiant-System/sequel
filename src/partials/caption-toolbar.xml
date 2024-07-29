@@ -1,8 +1,8 @@
 <CaptionToolBar has="display">
 	<Group class="left-tools">
 		<Options type="grouped">
-			<Tool symbol="icon-sidebar" click="toggle-sidebar" state="active"/>
-			<Tool symbol="icon-results" click="toggle-query-view" state="active"/>
+			<Tool symbol="icon-sidebar" click="toggle-sidebar" state="disabled"/>
+			<Tool symbol="icon-results" click="toggle-query-view" state="disabled"/>
 		</Options>
 	</Group>
 	<Group class="display">
@@ -12,6 +12,6 @@
 		</Field>
 	</Group>
 	<Group class="right-tools">
-		<Tool symbol="icon-cogs" menu="query-view"/>
+		<Tool symbol="icon-cogs" menu="query-view" state="disabled"/>
 	</Group>
 </CaptionToolBar>
