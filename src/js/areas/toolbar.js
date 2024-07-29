@@ -3,7 +3,10 @@
 
 {
 	init() {
-		
+		// fast references
+		this.els = {
+			el: window.find(`div[data-area="toolbar"]`),
+		};
 	},
 	dispatch(event) {
 		let APP = sequel,
@@ -14,13 +17,19 @@
 		switch (event.type) {
 			// custom events
 			case "toggle-sidebar":
-				value = !event.el.hasClass("tool-active_");
+				el = (event.el || Self.els.el.find(`.toolbar-tool_[data-click="toggle-sidebar"]`));
+				value = !el.hasClass("tool-active_");
+				if (!event.el) el.toggleClass("tool-active_", !value);
 				// forward event
 				APP.sidebar.dispatch({ ...event, value });
 				return value;
 			case "toggle-query-view":
-				value = event.el.hasClass("tool-active_");
-				return !value;
+				el = (event.el || Self.els.el.find(`.toolbar-tool_[data-click="toggle-query-view"]`));
+				value = !el.hasClass("tool-active_");
+				if (!event.el) el.toggleClass("tool-active_", !value);
+				// forward event
+				APP.query.dispatch({ ...event, value });
+				return value;
 		}
 	}
 }

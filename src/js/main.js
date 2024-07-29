@@ -67,6 +67,10 @@ const sequel = {
 			case "new-file":
 				console.log(event);
 				break;
+			case "close-file":
+				// hide blank view
+				Self.blankView.dispatch({ type: "show-blank-view" });
+				break;
 			case "load-samples":
 				// opening image file from application package
 				event.samples.map(async name => {

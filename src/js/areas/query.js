@@ -49,6 +49,9 @@
 				value = Self.editor.doc.getValue();
 				APP.result.dispatch({ ...event, value });
 				break;
+			case "toggle-query-view":
+				Self.els.layout.toggleClass("hide-query-view", event.value);
+				break;
 		}
 	}
 }

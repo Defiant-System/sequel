@@ -35,6 +35,16 @@ layout {
 			}
 		}
 	}
+
+	&.hide-query-view {
+		.query-input {
+			height: 0;
+
+			.query-wrapper {
+				top: -180px;
+			}
+		}
+	}
 }
 
 
@@ -51,7 +61,7 @@ layout {
 		position: relative;
 		width: 180px;
 		overflow: hidden;
-		transition: width 300ms ease-in-out;
+		transition: width 200ms ease-in-out;
 
 		.sidebar-wrapper {
 			// background-color: rgba(#333,.1);
@@ -59,10 +69,10 @@ layout {
 			top: 0;
 			left: 0;
 			bottom: 0;
-			width: 180px;
+			width: inherit;
 			overflow: auto;
 			padding: 3px 0 0 2px;
-			transition: left 300ms ease-in-out;
+			transition: left 200ms ease-in-out;
 		}
 
 		[class*="icon-"],
@@ -164,6 +174,17 @@ layout {
 	.query-input {
 		position: relative;
 		height: 210px;
+		overflow: hidden;
+		transition: height 200ms ease-in-out;
+
+		.query-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: inherit;
+			transition: top 200ms ease-in-out;
+		}
 
 		.CodeMirror {
 			position: absolute;

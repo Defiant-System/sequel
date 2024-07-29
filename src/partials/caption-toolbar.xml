@@ -1,12 +1,11 @@
 <CaptionToolBar>
 	<Group>
-		<Tool name="Connect" state="disabled"/>
-	</Group>
-	<Group>
 		<Options type="grouped">
 			<Tool symbol="icon-sidebar" click="toggle-sidebar" state="active"/>
 			<Tool symbol="icon-results" click="toggle-query-view" state="active"/>
 		</Options>
+	</Group>
+	<Group>
 		<Tool symbol="icon-cogs" menu="query-view"/>
 	</Group>
 </CaptionToolBar>
