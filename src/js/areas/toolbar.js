@@ -19,9 +19,11 @@
 			// custom events
 			case "show-blank-view":
 				Self.els.el.find(".toolbar-tool_").addClass("tool-disabled_");
+				Self.els.display.find("> .toolbar-field_").addClass("blank-display");
 				break;
 			case "hide-blank-view":
 				Self.els.el.find(".toolbar-tool_").removeClass("tool-disabled_");
+				Self.els.display.find("> .toolbar-field_").removeClass("blank-display");
 				break;
 			case "update-display":
 				Object.keys(event.data).map(key => Self.els.display.find(`.${key}`).html(event.data[key]));
