@@ -47,7 +47,7 @@
 
 <xsl:template name="tree-leaf">
 	<div class="leaf">
-		<xsl:attribute name="data-uId"><xsl:value-of select="@uId"/></xsl:attribute>
+		<xsl:attribute name="data-_uId"><xsl:value-of select="@_uId"/></xsl:attribute>
 		<xsl:if test="@state = 'expanded'">
 			<xsl:attribute name="data-state">expanded</xsl:attribute>
 		</xsl:if>

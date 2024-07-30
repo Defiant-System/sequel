@@ -13,7 +13,9 @@
 	dispatch(event) {
 		let APP = sequel,
 			Self = APP.sidebar,
+			xDoc,
 			xNode,
+			state,
 			str,
 			pEl,
 			el;
@@ -30,7 +32,7 @@
 				$.xmlFromString(str).selectNodes(`/i`).map(xLeaf => xNode.appendChild(xLeaf));
 
 				// tag all items with "uniq-id"
-				xNode.selectNodes(`.//*`).map((x, i) => x.setAttribute("uId", i+1));
+				xNode.selectNodes(`.//*`).map((x, i) => x.setAttribute("_uId", i+1));
 
 				// render HTML
 				window.render({
@@ -46,10 +48,49 @@
 				// remove "old" data
 				xNode = window.bluePrint.selectSingleNode(`//Data/Sidebar`);
 
+				// get current tree state
+				state = {}
+				xNode.selectNodes(`.//i`).map(xLeaf => {
+					let xItem = xLeaf,
+						path = [];
+					while (xItem.parentNode && xItem.getAttribute("name")) {
+						path.unshift(xItem.getAttribute("name"));
+						xItem = xItem.parentNode;
+					}
+					state[path.join("/")] = xLeaf.getAttribute("state");
+				});
+
 				// "fresh" representation of DB
 				str = Self.dispatch({ type: "db-to-xml-string" });
-				$.xmlFromString(str).selectNodes(`//i`).map(xLeaf => console.log(xLeaf));
+				xDoc = $.xmlFromString(str);
+
+				// mirror tree state to new xml
+				xDoc.selectNodes(`.//i`).map(xLeaf => {
+					let xItem = xLeaf,
+						path = [];
+					while (xItem.parentNode && xItem.getAttribute("name")) {
+						path.unshift(xItem.getAttribute("name"));
+						xItem = xItem.parentNode;
+					}
+					if (state[path.join("/")]) {
+						xLeaf.setAttribute("state", state[path.join("/")]);
+					}
+				});
+
+				// clear old data
+				while (xNode.hasChildNodes()) xNode.removeChild(xNode.firstChild);
+				// put new structure to xSidebar
+				xDoc.selectNodes(`/i`).map(xLeaf => xNode.appendChild(xLeaf));
+
+				// tag all items with "uniq-id"
+				xNode.selectNodes(`.//*`).map((x, i) => x.setAttribute("_uId", i+1));
 				
+				// render HTML
+				window.render({
+					template: "tree",
+					match: "//Data/Sidebar",
+					target: Self.els.wrapper,
+				});
 				break;
 			case "db-to-xml-string":
 				str = [];
@@ -79,19 +120,25 @@
 				switch (true) {
 					case el.hasClass("icon-arrow"):
 						pEl = el.parent();
+						xNode = window.bluePrint.selectSingleNode(`//Data/Sidebar//*[@_uId="${pEl.data("_uId")}"]`);
+
 						if (pEl.data("state") === "expanded") {
-							pEl.data({ state: "collapsed" });
+							state = "collapsed";
+							pEl.data({ state });
+							xNode.setAttribute("state", state);
 						} else {
 							let xChildren = pEl.nextAll("div:first");
 							if (!xChildren.hasClass("children") || !xChildren.length) {
 								// render HTML
 								window.render({
 									template: "leaf-children",
-									match: `//Data/Sidebar//*[@uId="${pEl.data("uId")}"]`,
+									match: `//Data/Sidebar//*[@_uId="${pEl.data("_uId")}"]`,
 									after: pEl,
 								});
 							}
-							pEl.data({ state: "expanded" });
+							state = "expanded";
+							pEl.data({ state });
+							xNode.setAttribute("state", state);
 						}
 						break;
 					case el.hasClass("name"):
