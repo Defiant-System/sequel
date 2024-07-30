@@ -67,7 +67,7 @@ const sequel = {
 				});
 				break;
 			case "new-file":
-				console.log(event);
+				Self.dispatch({ ...event, type: "prepare-file", file: new File() });
 				break;
 			case "close-file":
 				// hide blank view

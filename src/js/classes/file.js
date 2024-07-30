@@ -2,27 +2,29 @@
 class File {
 	constructor(fsFile) {
 		// save reference to original FS file
-		this._file = fsFile || new karaqu.File({ kind: "sql" });
+		this._file = fsFile || new karaqu.File({ kind: "db" });
 		//console.log(fsFile);
 		
 		let db = new sqlite3.oo1.DB();
-		switch (fsFile.kind) {
+		switch (this._file.kind) {
 			case "sql":
-				this.database = new SQLite(fsFile.base, fsFile.path, sqlite3.capi, db);
-				this.database.execute(fsFile.data);
+				this.database = new SQLite(this._file.base, this._file.path, sqlite3.capi, db);
+				this.database.execute(this._file.data);
 				this.database.gatherTables();
 				this.database.query = "";
 				break;
 			case "db":
-				sqlite3.capi.sqlite3_deserialize(
-					db.pointer,
-					"main",
-					sqlite3.wasm.allocFromTypedArray(this._file.data),
-					this._file.data.length,
-					this._file.data.length,
-					sqlite3.capi.SQLITE_DESERIALIZE_FREEONCLOSE
-				);
-				this.database = new SQLite(fsFile.base, fsFile.path, sqlite3.capi, db);
+				if (this._file.data) {
+					sqlite3.capi.sqlite3_deserialize(
+						db.pointer,
+						"main",
+						sqlite3.wasm.allocFromTypedArray(this._file.data),
+						this._file.data.length,
+						this._file.data.length,
+						sqlite3.capi.SQLITE_DESERIALIZE_FREEONCLOSE
+					);
+				}
+				this.database = new SQLite(this._file.base, this._file.path, sqlite3.capi, db);
 				this.database.gatherTables();
 				break;
 		}

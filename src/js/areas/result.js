@@ -38,6 +38,17 @@
 					}
 				}
 
+				if (result === null) {
+					// guessing it is operation; "CREATE", "DROP", "ALTER"
+					APP.activeFile.database.gatherTables();
+					APP.activeFile.database.query = "";
+					// sync sidebar
+					console.log( APP.activeFile.database.tables );
+
+					// reset result
+					result = { columns: [], values: [] };
+				}
+
 				// stop timer
 				let t = Timer.finish();
 
