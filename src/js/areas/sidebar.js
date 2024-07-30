@@ -81,7 +81,6 @@
 				while (xNode.hasChildNodes()) xNode.removeChild(xNode.firstChild);
 				// put new structure to xSidebar
 				xDoc.selectNodes(`/i`).map(xLeaf => xNode.appendChild(xLeaf));
-
 				// tag all items with "uniq-id"
 				xNode.selectNodes(`.//*`).map((x, i) => x.setAttribute("_uId", i+1));
 				

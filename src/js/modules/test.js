@@ -1,16 +1,22 @@
 
 let Test = {
 	init(APP) {
+		return;
+
+		setTimeout(() => window.find(`.leaf[data-_uid="3"] .icon-arrow`).trigger("click"), 200);
 
 		setTimeout(() => {
-			let value = `CREATE TABLE banan (
-	id INTEGER primary key,
-	name VARCHAR(50)
-);`;
+			return;
+// 			let value = `CREATE TABLE banan (
+// 	id INTEGER primary key,
+// 	name VARCHAR(50)
+// );`;
+			// let value = `DROP TABLE expenses;`;
+			let value = `ALTER TABLE employees ADD COLUMN title;`;
 			APP.query.editor.doc.setValue(value);
 
 			setTimeout(() => APP.query.dispatch({ type: "execute-query" }), 200);
-		}, 200);
+		}, 1000);
 
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="toggle-sidebar"]`).trigger("click"), 1000);
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="toggle-query-view"]`).trigger("click"), 1000);
