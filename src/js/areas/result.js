@@ -43,8 +43,7 @@
 					APP.activeFile.database.gatherTables();
 					APP.activeFile.database.query = "";
 					// sync sidebar
-					console.log( APP.activeFile.database.tables );
-
+					APP.sidebar.dispatch({ type: "sync-sidebar" });
 					// reset result
 					result = { columns: [], values: [] };
 				}
@@ -73,12 +72,16 @@
 				// make xml
 				$.xmlFromString(`<data>${str.join("")}</data>`).selectNodes(`/data/*`).map(xRow => xResult.appendChild(xRow));
 
-				// render blank view
-				window.render({
-					template: "query-result",
-					match: `//Result`,
-					target: Self.els.el
-				});
+				if (!str.length) {
+					Self.els.el.html("");
+				} else {
+					// render blank view
+					window.render({
+						template: "query-result",
+						match: `//Result`,
+						target: Self.els.el
+					});
+				}
 				break;
 		}
 	}

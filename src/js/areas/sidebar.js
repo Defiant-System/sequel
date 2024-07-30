@@ -13,6 +13,7 @@
 	dispatch(event) {
 		let APP = sequel,
 			Self = APP.sidebar,
+			xNode,
 			str,
 			pEl,
 			el;
@@ -20,6 +21,37 @@
 		switch (event.type) {
 			// custom events
 			case "render-sidebar":
+				// remove "old" data
+				xNode = window.bluePrint.selectSingleNode(`//Data/Sidebar`);
+				while (xNode.hasChildNodes()) xNode.removeChild(xNode.firstChild);
+
+				// insert nodes into "Data"
+				str = Self.dispatch({ type: "db-to-xml-string" });
+				$.xmlFromString(str).selectNodes(`/i`).map(xLeaf => xNode.appendChild(xLeaf));
+
+				// tag all items with "uniq-id"
+				xNode.selectNodes(`.//*`).map((x, i) => x.setAttribute("uId", i+1));
+
+				// render HTML
+				window.render({
+					template: "tree",
+					match: "//Data/Sidebar",
+					target: Self.els.wrapper,
+				});
+
+				// initial DB query
+				APP.query.dispatch({ type: "build-first-query" });
+				break;
+			case "sync-sidebar":
+				// remove "old" data
+				xNode = window.bluePrint.selectSingleNode(`//Data/Sidebar`);
+
+				// "fresh" representation of DB
+				str = Self.dispatch({ type: "db-to-xml-string" });
+				$.xmlFromString(str).selectNodes(`//i`).map(xLeaf => console.log(xLeaf));
+				
+				break;
+			case "db-to-xml-string":
 				str = [];
 				// file / database name
 				str.push(`<i icon="file" name="${APP.activeFile._file.base}" state="expanded">`);
@@ -39,27 +71,7 @@
 				// close tags
 				str.push(`</i>`);
 				str.push(`</i>`);
-
-				// remove "old" data
-				let xSidebar = window.bluePrint.selectSingleNode(`//Data/Sidebar`);
-				while (xSidebar.hasChildNodes()) xSidebar.removeChild(xSidebar.firstChild);
-
-				// insert nodes into "Data"
-				$.xmlFromString(str.join("")).selectNodes(`/i`).map(xFile => xSidebar.appendChild(xFile));
-
-				// tag all items with "uniq-id"
-				xSidebar.selectNodes(`.//*`).map((x, i) => x.setAttribute("uId", i+1));
-
-				// render HTML
-				window.render({
-					template: "tree",
-					match: "//Data/Sidebar",
-					target: Self.els.wrapper,
-				});
-
-				// initial DB query
-				APP.query.dispatch({ type: "build-first-query" });
-				break;
+				return str.join("");
 			case "click-tree":
 				el = $(event.target);
 				if (el[0] === event.el[0]) return;
