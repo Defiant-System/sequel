@@ -3,7 +3,6 @@ class File {
 	constructor(fsFile) {
 		// save reference to original FS file
 		this._file = fsFile || new karaqu.File({ kind: "db" });
-		//console.log(fsFile);
 		
 		let db = new sqlite3.oo1.DB();
 		switch (this._file.kind) {
@@ -26,6 +25,7 @@ class File {
 				}
 				this.database = new SQLite(this._file.base, this._file.path, sqlite3.capi, db);
 				this.database.gatherTables();
+				this.database.query = "";
 				break;
 		}
 	}

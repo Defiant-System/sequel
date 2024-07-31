@@ -1,7 +1,10 @@
 
 let Test = {
 	init(APP) {
-		// return;
+		return;
+
+		// setTimeout(() => APP.dispatch({ type: "close-file" }), 1000);
+		// setTimeout(() => APP.query.editor.doc.setValue("select * from sales limit 5;"), 1200);
 
 		// setTimeout(() => APP.dispatch({ type: "save-file" }), 200);
 		// setTimeout(() => console.log( APP.activeFile.database.capi ), 500);

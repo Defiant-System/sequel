@@ -77,6 +77,10 @@ const sequel = {
 				});
 				break;
 			case "close-file":
+				// rest areas
+				Self.query.dispatch({ type: "reset-view" });
+				// reset app
+				delete Self.activeFile;
 				// hide blank view
 				Self.blankView.dispatch({ type: "show-blank-view" });
 				break;

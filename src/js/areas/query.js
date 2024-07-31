@@ -14,7 +14,7 @@
 			Self = APP.query,
 			value,
 			el;
-		// console.log(event);
+		console.log(event);
 		switch (event.type) {
 			// custom events
 			case "init-query-view":
@@ -35,7 +35,7 @@
 					// 	}
 					// }
 				};
-				Self.editor = CodeMirror.fromTextArea(Self.els.el.find("textarea")[0], value);
+				Self.editor = Self.editor || CodeMirror.fromTextArea(Self.els.el.find("textarea")[0], value);
 				break;
 			case "build-first-query":
 				if (!APP.activeFile.database.tables.length) return;
@@ -48,6 +48,9 @@
 			case "execute-query":
 				value = Self.editor.doc.getValue();
 				APP.result.dispatch({ ...event, value });
+				break;
+			case "reset-view":
+				Self.editor.doc.setValue("");
 				break;
 			case "toggle-query-view":
 				Self.els.layout.toggleClass("hide-query-view", event.value);
