@@ -8,7 +8,7 @@
 		<Menu name="New File" click="new-file"/>
 		<Menu name="Open File" click="open-file"/>
 		<Menu type="divider"/>
-		<Menu name="Save File" disabled="1"/>
+		<Menu name="Save File&#8230;" click="save-file"/>
 		<Menu type="divider"/>
 		<Menu name="Close File" click="close-file"/>
 	</Menu>

@@ -69,6 +69,13 @@ const sequel = {
 			case "new-file":
 				Self.dispatch({ ...event, type: "prepare-file", file: new File() });
 				break;
+			case "save-file":
+				// pass on available file types
+				window.dialog.saveAs(Self.activeFile.file, {
+					sql: () => Self.activeFile.toBlob({ kind: "sql" }),
+					db: () => Self.activeFile.toBlob({ kind: "db" }),
+				});
+				break;
 			case "close-file":
 				// hide blank view
 				Self.blankView.dispatch({ type: "show-blank-view" });

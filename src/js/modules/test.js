@@ -1,10 +1,13 @@
 
 let Test = {
 	init(APP) {
-		return;
+		// return;
 
-		setTimeout(() => window.find(`.leaf[data-_uid="3"] .icon-arrow`).trigger("click"), 200);
+		setTimeout(() => APP.dispatch({ type: "save-file" }), 500);
 
+		// setTimeout(() => window.find(`.leaf[data-_uid="3"] .icon-arrow`).trigger("click"), 200);
+
+		/*
 		setTimeout(() => {
 			return;
 // 			let value = `CREATE TABLE banan (
@@ -17,6 +20,7 @@ let Test = {
 
 			setTimeout(() => APP.query.dispatch({ type: "execute-query" }), 200);
 		}, 1000);
+		*/
 
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="toggle-sidebar"]`).trigger("click"), 1000);
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="toggle-query-view"]`).trigger("click"), 1000);

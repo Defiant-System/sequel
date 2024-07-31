@@ -30,8 +30,17 @@ class File {
 		}
 	}
 
-	toBlob(opt={}) {
+	get file() {
+		return this._file;
+	}
 
+	toBlob(opt={}) {
+		switch (opt.kind) {
+			case "sql":
+				break;
+			case "db":
+				break;
+		}
 	}
 
 	static openLocal(url) {
