@@ -97,5 +97,5 @@ function tableContentsToSql(database, item) {
     return contents.join("\n");
 }
 
-const dumper = { toSql };
-export default dumper;
+const Dumper = { toSql };
+export default Dumper;

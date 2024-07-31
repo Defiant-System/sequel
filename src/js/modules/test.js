@@ -3,7 +3,13 @@ let Test = {
 	init(APP) {
 		// return;
 
-		setTimeout(() => APP.dispatch({ type: "save-file" }), 500);
+		// setTimeout(() => APP.dispatch({ type: "save-file" }), 200);
+		// setTimeout(() => console.log( APP.activeFile.database.capi ), 500);
+		// setTimeout(() => {
+		// 	let fileDb = APP.activeFile.database,
+		// 		tmp = fileDb.capi.sqlite3_js_db_export(fileDb.db.pointer);
+		// 	console.log( tmp );
+		// }, 500);
 
 		// setTimeout(() => window.find(`.leaf[data-_uid="3"] .icon-arrow`).trigger("click"), 200);
 

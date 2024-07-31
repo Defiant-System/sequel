@@ -7,7 +7,7 @@
 @import "./external/cm/sql.js"
 
 
-import dumper from "./external/sqlite/dumper.js";
+import Dumper from "./external/sqlite/dumper.js";
 import { SQLite } from "./external/sqlite/db.js";
 
 @import "./external/sqlite/sqlite3.js"
@@ -15,7 +15,7 @@ import { SQLite } from "./external/sqlite/db.js";
 
 module.exports = {
 	CodeMirror,
-	dumper,
+	Dumper,
 	SQLite,
 	sqlite3InitModule,
 };

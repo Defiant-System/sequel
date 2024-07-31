@@ -7,7 +7,7 @@
 // load bundled resources
 let {
 	CodeMirror,
-	dumper,
+	Dumper,
 	SQLite,
 	sqlite3InitModule,
 } = await window.fetch("~/js/bundle.js");

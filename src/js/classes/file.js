@@ -35,12 +35,19 @@ class File {
 	}
 
 	toBlob(opt={}) {
+		let kind = opt.kind || this.kind,
+			type = karaqu.File.getMime(kind),
+			data;
+		// console.log( type );
 		switch (opt.kind) {
 			case "sql":
+				data = Dumper.toSql(APP.activeFile.database);
 				break;
 			case "db":
+				data = this.database.capi.sqlite3_js_db_export(this.database.db.pointer);
 				break;
 		}
+		return new Blob([data], { type });
 	}
 
 	static openLocal(url) {
