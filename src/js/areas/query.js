@@ -14,7 +14,7 @@
 			Self = APP.query,
 			value,
 			el;
-		console.log(event);
+		// console.log(event);
 		switch (event.type) {
 			// custom events
 			case "init-query-view":
